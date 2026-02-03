@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  overflow: hidden;
+  background-color: hsl(210, 20%, 98%);
+  user-select: none;
+}
+
+/* Titlebar - Hopewell Healthcare Theme */
+.titlebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  /* Primary gradient - Medical teal/blue - trust and care */
+  background: linear-gradient(135deg, hsl(187, 72%, 38%) 0%, hsl(199, 89%, 48%) 100%);
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.titlebar-drag-region {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 8px;
+  -webkit-app-region: drag;
+}
+
+/* Left section */
+.titlebar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 8px;
+  min-width: 200px;
+}
+
+.app-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.app-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.app-title {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Center section */
+.titlebar-center {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  max-width: 800px;
+  padding: 0 16px;
+}
+
+.navigation-controls {
+  display: flex;
+  gap: 4px;
+  -webkit-app-region: no-drag;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-btn:active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.url-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 0 14px;
+  position: relative;
+  -webkit-app-region: no-drag;
+  backdrop-filter: blur(10px);
+}
+
+.url-text {
+  flex: 1;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.95);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.loading-indicator {
+  position: absolute;
+  right: 10px;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.loading-indicator.active {
+  opacity: 1;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Right section */
+.titlebar-right {
+  display: flex;
+  gap: 0;
+  -webkit-app-region: no-drag;
+}
+
+.window-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.window-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.window-btn:active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.window-btn.close-btn:hover {
+  background: #e81123;
+}
+
+.window-btn.close-btn:active {
+  background: #c50f1f;
+}
+
+/* Maximize button icon change when maximized */
+.window-btn.maximized svg rect {
+  width: 9px;
+  height: 9px;
+  x: 2.5;
+  y: 2.5;
+}
+
+.window-btn.maximized svg::before {
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 1px solid currentColor;
+  top: 1px;
+  left: 1px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .app-title {
+    display: none;
+  }
+  
+  .titlebar-left {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .url-bar {
+    display: none;
+  }
+}

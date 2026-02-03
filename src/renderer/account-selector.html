@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'">
+  <title>Select Account - Hopewell Desktop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="account-selector.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="../../assets/icon.png" alt="Hopewell Logo" class="logo">
+      <h1>Welcome to Hopewell Desktop</h1>
+      <p>Select an account to continue or add a new one</p>
+    </div>
+
+    <div class="accounts-list" id="accounts-list">
+      <!-- Accounts will be dynamically loaded here -->
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="add-account-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Add New Account
+      </button>
+    </div>
+  </div>
+
+  <script src="account-selector.js"></script>
+</body>
+</html>

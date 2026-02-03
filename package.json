@@ -1,0 +1,81 @@
+{
+  "name": "hopewell-desktop",
+  "version": "1.0.0",
+  "description": "Hopewell Community Clinic Desktop Application",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "publish": "electron-builder --publish always"
+  },
+  "keywords": [
+    "hopewell",
+    "healthcare",
+    "clinic",
+    "desktop"
+  ],
+  "author": "Hopewell Community Clinic",
+  "license": "MIT",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bimaitlabs/hopewell-desktop.git"
+  },
+  "build": {
+    "appId": "com.hopewell.desktop",
+    "productName": "Hopewell Desktop",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "protocols": {
+      "name": "hopewell-clinic",
+      "schemes": [
+        "hopewell-clinic"
+      ]
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "bimaitlabs",
+        "repo": "hopewell-desktop",
+        "releaseType": "release"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icon.png",
+      "signAndEditExecutable": false
+    },
+    "mac": {
+      "category": "public.app-category.healthcare-fitness",
+      "icon": "assets/icon.png"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Office",
+      "icon": "assets/icon.png"
+    }
+  },
+  "devDependencies": {
+    "electron": "^40.1.0",
+    "electron-builder": "^26.7.0"
+  },
+  "dependencies": {
+    "electron-store": "^11.0.2",
+    "electron-updater": "^6.7.3"
+  }
+}
